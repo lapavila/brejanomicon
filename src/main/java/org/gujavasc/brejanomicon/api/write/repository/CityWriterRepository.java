@@ -14,8 +14,8 @@ public class CityWriterRepository {
     NamedParameterJdbcTemplate jdbcTemplate;
 
     public City create(City city) {
-        SqlQuery query = SqlQuery.create(jdbcTemplate);
-        int lines = query.insert("city")
+        var query = SqlQuery.create(jdbcTemplate);
+        var lines = query.insert("city")
                 .value("name", city.getName())
                 .value("capital", city.getCapital())
                 .value("state_id", city.getState().getId())
