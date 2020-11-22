@@ -1,1 +1,1 @@
-web: java -Dserve.port=$PORT $JAVA_OPTS -jar target/brejanomicon-api-*.jar
+web: java -jar target/brejanomicon-api-*.jar
