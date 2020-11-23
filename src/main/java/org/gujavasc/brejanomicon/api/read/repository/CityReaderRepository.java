@@ -1,9 +1,9 @@
 package org.gujavasc.brejanomicon.api.read.repository;
 
+import br.com.unosolucoes.sqlquery.jdbc.SqlQuery;
+import org.gujavasc.brejanomicon.api.model.City;
 import org.gujavasc.brejanomicon.api.read.filter.CityFilter;
 import org.gujavasc.brejanomicon.api.read.mapper.CityMapper;
-import org.gujavasc.brejanomicon.api.model.City;
-import org.gujavasc.brejanomicon.core.jdbc.SqlQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;

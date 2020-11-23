@@ -1,8 +1,8 @@
 package org.gujavasc.brejanomicon.api.read.repository;
 
-import org.gujavasc.brejanomicon.api.read.mapper.StateMapper;
+import br.com.unosolucoes.sqlquery.jdbc.SqlQuery;
 import org.gujavasc.brejanomicon.api.model.State;
-import org.gujavasc.brejanomicon.core.jdbc.SqlQuery;
+import org.gujavasc.brejanomicon.api.read.mapper.StateMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
