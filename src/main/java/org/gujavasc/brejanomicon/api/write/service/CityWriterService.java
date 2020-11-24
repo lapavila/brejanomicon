@@ -13,4 +13,8 @@ public class CityWriterService {
     public City create(City city) {
         return repository.create(city);
     }
+
+    public City update(Long id, City city) {
+        return repository.update(id, city);
+    }
 }

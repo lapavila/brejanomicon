@@ -1,6 +1,6 @@
 package org.gujavasc.brejanomicon.api.read.repository;
 
-import br.com.unosolucoes.sqlquery.jdbc.SqlQuery;
+import br.com.unosolucoes.sqlquery.jdbc.fluent.Sql;
 import org.gujavasc.brejanomicon.api.model.Brewery;
 import org.gujavasc.brejanomicon.api.read.mapper.BreweryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class BreweryReaderRepository {
     NamedParameterJdbcTemplate jdbcTemplate;
 
     public List<Brewery> findAll() {
-        return SqlQuery.create(jdbcTemplate)
+        return Sql.select(jdbcTemplate)
                 .sql("SELECT brewery.id,")
                 .sql("       brewery.name,")
                 .sql("       brewery.description,")

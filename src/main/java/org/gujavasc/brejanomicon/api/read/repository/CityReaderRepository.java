@@ -1,6 +1,6 @@
 package org.gujavasc.brejanomicon.api.read.repository;
 
-import br.com.unosolucoes.sqlquery.jdbc.SqlQuery;
+import br.com.unosolucoes.sqlquery.jdbc.fluent.Sql;
 import org.gujavasc.brejanomicon.api.model.City;
 import org.gujavasc.brejanomicon.api.read.filter.CityFilter;
 import org.gujavasc.brejanomicon.api.read.mapper.CityMapper;
@@ -16,7 +16,7 @@ public class CityReaderRepository {
     NamedParameterJdbcTemplate jdbcTemplate;
 
     public List<City> findAll() {
-        return SqlQuery.create(jdbcTemplate)
+        return Sql.select(jdbcTemplate)
                 .sql("SELECT city.id,")
                 .sql("       city.name,")
                 .sql("       city.capital,")
@@ -29,7 +29,7 @@ public class CityReaderRepository {
     }
 
     public List<City> filter(CityFilter filter) {
-        return SqlQuery.create(jdbcTemplate)
+        return Sql.select(jdbcTemplate)
                 .sql("SELECT city.id,")
                 .sql("       city.name,")
                 .sql("       city.capital,")

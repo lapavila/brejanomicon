@@ -1,6 +1,6 @@
 package org.gujavasc.brejanomicon.api.read.repository;
 
-import br.com.unosolucoes.sqlquery.jdbc.SqlQuery;
+import br.com.unosolucoes.sqlquery.jdbc.fluent.Sql;
 import org.gujavasc.brejanomicon.api.model.State;
 import org.gujavasc.brejanomicon.api.read.mapper.StateMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class StateReaderRepository {
     NamedParameterJdbcTemplate jdbcTemplate;
 
     public List<State> findAll() {
-        return SqlQuery.create(jdbcTemplate)
+        return Sql.select(jdbcTemplate)
                 .sql("SELECT id,")
                 .sql("       abbreviation,")
                 .sql("       name")

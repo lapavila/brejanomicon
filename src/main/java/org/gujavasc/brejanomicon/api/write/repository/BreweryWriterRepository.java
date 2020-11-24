@@ -1,6 +1,6 @@
 package org.gujavasc.brejanomicon.api.write.repository;
 
-import br.com.unosolucoes.sqlquery.jdbc.SqlQuery;
+import br.com.unosolucoes.sqlquery.jdbc.fluent.Sql;
 import org.gujavasc.brejanomicon.api.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -13,8 +13,8 @@ public class BreweryWriterRepository {
     NamedParameterJdbcTemplate jdbcTemplate;
 
     public Brewery create(Brewery brewery) {
-        var query = SqlQuery.create(jdbcTemplate);
-        var lines = query.insert("brewery")
+        var insert = Sql.insert(jdbcTemplate)
+                .into("brewery")
                 .value("name", brewery.getName())
                 .value("description", brewery.getDescription())
                 .value("story", brewery.getStory())
@@ -25,7 +25,7 @@ public class BreweryWriterRepository {
                 .value("postal_code", brewery.getPostalCode())
                 .value("city_id", brewery.getCity().getId())
                 .execute();
-        brewery.setId(query.getKey().longValue());
+        brewery.setId(insert.getKey().longValue());
         return brewery;
     }
 }
